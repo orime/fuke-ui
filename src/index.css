@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+@font-face {
+  font-family: 'Zpix';
+  src: url('https://unpkg.com/zpix-browser/dist/zpix.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --bg-color: #EBE5D0;
+  --text-color: #000000;
+  --green: #06FBBE;
+  --pale-green: #91E6B3;
+  --dark-blue: #000E50;
+  --white: #FFFFFF;
+  --border-color: #000000;
+  --border-width: 2px;
+  
+  --dot-pattern: radial-gradient(circle, #000 1px, transparent 1.5px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Zpix', 'DotGothic16', monospace;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Force pixel font to not anti-alias on bold */
+h1, h2, h3, h4, h5, h6, strong, b {
+  font-weight: normal; 
+}
+
+/* Base UI Elements */
+.panel-active {
+  border: 2px solid var(--border-color);
+  box-shadow: inset 0 0 0 4px var(--green), inset 0 0 0 6px var(--border-color);
+  background-color: var(--bg-color);
+}
+
+.pixel-btn {
+  border: var(--border-width) solid var(--border-color);
+  background-color: var(--green);
+  color: var(--text-color);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-shadow: 2px 2px 0 var(--border-color);
+}
+
+.pixel-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0 var(--border-color);
+}
+
+.ruler-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.ruler-top {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 0;
+  height: 30px;
+  border-bottom: var(--border-width) solid var(--border-color);
+  background: none; 
+}
+
+.ruler-left {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  border-right: var(--border-width) solid var(--border-color);
+  background: none;
+}
+
+.app-wrapper {
+  padding-top: 30px;
+  padding-left: 30px;
+  min-height: 100vh;
+  display: flex;
+}
